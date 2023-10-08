@@ -1,10 +1,15 @@
 section .data
 
+x dd, 10
+y dd, 20
 matrix: resb 200 ; 20x10
+marixLen: equ $-matrix
 
 section .text
 
 ;definicion de bloques
+;bloque I: [1][1][1][1]
+
 
 ;generacion de bloques
 
