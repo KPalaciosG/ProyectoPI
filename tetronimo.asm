@@ -62,18 +62,36 @@ mov byte[rbx+6], 7
 mov byte[rbx+14], 7
 mov byte[rbx+15], 7
 mov byte[rbx+16], 7
+;--------------end definicion de bloques----------
+
+;----------get block-----------
+getBlock:
+	mov rsi, [rbx]
+	cmp rsi, 0
+	je increase
+
+	mov rax, [rsi]
+
+	increase: 
+	inc rbx
+	loop getBlock
+;---------- end getBlock----------
 
 
 ;generacion de bloques
 
 ;mover hacia la derecha
+;+1 para mover hacia la derecha
+
 
 ;mover hacia la izquierda
+
 
 ;rotar
 
 ;verificar estado
 
-mov rax, 60
-mov rdi, 0
-syscall
+end:
+	mov rax, 60
+	mov rdi, 0
+	syscall
