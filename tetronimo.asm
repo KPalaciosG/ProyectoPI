@@ -71,6 +71,7 @@ getBlock:
 	je increase
 
 	mov rax, [rsi]
+	jmp end ;CAMBIAR DESPUÉS CON EL SIGUIENTE CODIGO
 
 	increase: 
 	inc rbx
