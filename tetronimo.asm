@@ -66,12 +66,12 @@ mov byte[rbx+16], 7
 
 ;----------get block-----------
 getBlock:
-	mov rsi, [rbx]
-	cmp rsi, 0
+	mov sil, byte[rbx]
+	cmp sil, 0
 	je increase
 
-	mov rax, [rsi]
-	jmp end ;CAMBIAR DESPUÉS CON EL SIGUIENTE CODIGO
+	mov rax, rsi
+	jmp end
 
 	increase: 
 	inc rbx
