@@ -84,22 +84,45 @@ getBlock:
 	
 moveRight:
 	
-	mov ecx, 200
+	mov ecx, 200 				;comenzamos al final de la matriz
 	mov rbx, matrix
 
 	startMoveRight:
-	cmp byte[rbx+rcx],0
+	cmp byte[rbx+rcx], 0         ;si lo que hay en la matriz es 0, no hace nada
 	je loopRight
 
-	mov dl, byte[rbx+rcx]
-	mov byte[rbx+rcx],0
+	mov dl, byte[rbx+rcx]       ;si es diferente de 0, va moviendo hacia la derecha
+	mov byte[rbx+rcx], 0
 	mov byte[rbx+rcx+1], dl
 	
 	loopRight: 
 
-	loop startMoveRight	
+		loop startMoveRight	
 
 ;-----------end moveRight-------------
+
+;-----------moveLeft-----------------
+;mover hacia la izquierda
+;el ciclo va desde el principio de la matriz hasta el final
+
+moveLeft:
+	mov ecx, 200
+	mov rbx, matrix
+	mov rsi, 0  		;contador
+
+	startMoveLeft:
+	cmp byte[rbx+rsi], 0   ;si es 0 en la matriz no hace nada
+	je loopLeft
+
+	mov dl, byte[rbx+rsi]  ;si no es 0, mueve
+	mov byte[rbx+rsi], 0
+	mov byte[rbx+rsi-1], dl
+
+	loopLeft:
+		inc rsi
+		loop startMoveLeft
+
+;----------end moveLeft-------------------
 
 ;generacion de bloques
 
@@ -107,7 +130,6 @@ moveRight:
 ;+1 para mover hacia la derecha
 
 
-;mover hacia la izquierda
 
 
 ;rotar
